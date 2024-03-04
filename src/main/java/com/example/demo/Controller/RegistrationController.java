@@ -30,7 +30,9 @@ public class RegistrationController
     public ResponseEntity<String> register(@RequestBody Registration registration)
 	{
 		registaServiceInter.saveRegistration(registration);
-        return ResponseEntity.ok("Registration saved successfully");
+        return ResponseEntity.ok("Registration saved successfully done");
+        
+        
 		  
     }
 
