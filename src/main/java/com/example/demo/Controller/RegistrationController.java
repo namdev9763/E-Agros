@@ -18,9 +18,7 @@ import com.example.demo.ServiceInter.RegistaServiceInter;
 @RestController
 @RequestMapping("/api/registration/")
 @CrossOrigin
-public class RegistrationController
-{
-
+public class RegistrationController{
 	@Autowired
 	RegistaServiceInter registaServiceInter;
 	@PostMapping("/register")

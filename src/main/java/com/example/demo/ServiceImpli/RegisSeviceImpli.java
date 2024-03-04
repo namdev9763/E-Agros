@@ -1,12 +1,9 @@
 package com.example.demo.ServiceImpli;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.example.demo.Entity.Registration;
 import com.example.demo.Repo.RegistrRepo;
 import com.example.demo.ServiceInter.RegistaServiceInter;
-
 @Service
 public class RegisSeviceImpli  implements RegistaServiceInter 
 {
@@ -19,9 +16,6 @@ public class RegisSeviceImpli  implements RegistaServiceInter
 		try
 		{
 			Registration exstingEmail=registrRepo.findByEmail(registration.getEmail());
-			//Registration exstingPassword=registrRepo.findByPassword(registration.getPassword());
-			//Registration exstingConfromPassword=registrRepo.findByConfirmPassword(registration.getConfirm_password());
-			
 			if(exstingEmail!=null)
 			{
 				throw new RuntimeException("Email already exists");
