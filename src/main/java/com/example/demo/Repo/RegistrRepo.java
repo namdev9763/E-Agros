@@ -6,5 +6,6 @@ import com.example.demo.Entity.Registration;
 
 public interface RegistrRepo extends JpaRepository<Registration, Long> 
 {
+	public Registration findByEmail(String email);	
 
 }

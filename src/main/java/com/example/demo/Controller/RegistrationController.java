@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.Entity.Registration;
-import com.example.demo.ServiceImpli.RegisSeviceImpli;
 import com.example.demo.ServiceInter.RegistaServiceInter;
 
 @RestController
@@ -21,19 +20,13 @@ import com.example.demo.ServiceInter.RegistaServiceInter;
 @CrossOrigin
 public class RegistrationController
 {
-	
+
 	@Autowired
 	RegistaServiceInter registaServiceInter;
-//	@Autowired
-//	RegisSeviceImpli regisSeviceImpli;
 	@PostMapping("/register")
-    public ResponseEntity<String> register(@RequestBody Registration registration)
+	public String register(@RequestBody Registration registration)
 	{
-		registaServiceInter.saveRegistration(registration);
-        return ResponseEntity.ok("Registration saved successfully done");
-        
-        
-		  
-    }
+		return registaServiceInter.saveRegistration(registration);
+	}
 
 }

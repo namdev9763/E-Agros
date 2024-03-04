@@ -14,11 +14,33 @@ public class RegisSeviceImpli  implements RegistaServiceInter
 	RegistrRepo registrRepo;
 
 	@Override
-	public void saveRegistration(Registration registration)
+	public String saveRegistration(Registration registration)
 	{
-		registrRepo.save(registration);
-		
+		try
+		{
+			Registration exstingEmail=registrRepo.findByEmail(registration.getEmail());
+			//Registration exstingPassword=registrRepo.findByPassword(registration.getPassword());
+			//Registration exstingConfromPassword=registrRepo.findByConfirmPassword(registration.getConfirm_password());
+			
+			if(exstingEmail!=null)
+			{
+				throw new RuntimeException("Email already exists");
+			}
+			if (!registration.getPassword().equals(registration.getConfirm_password())) 
+			{
+	            throw new RuntimeException("Passwords do not match");
+	        }
+			registrRepo.save(registration);
+			return "Registration has Successfuly";	
+		}
+		catch (Exception e) 
+		{
+			e.printStackTrace();
+			return "Missing Some data";
+		}
+
+
 	}	
-	
+
 
 }
